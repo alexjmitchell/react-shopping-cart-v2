@@ -1,0 +1,96 @@
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 1000px;
+  margin: 0 auto;
+  gap: 0;
+  text-align: center;
+  align-items: end;
+}
+
+.product-image {
+  width: 100%;
+  display: block;
+}
+
+.product {
+  position: relative;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+.product:hover {
+  border: 1px solid #ccc;
+}
+
+.product .installments {
+  color: #ccc;
+}
+
+.shipping {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-size: 0.8em;
+  background: black;
+  color: white;
+}
+
+.dollar {
+  font-size: 2em;
+}
+
+.product button {
+  background: #1b1a20;
+  color: white;
+  font-size: 12px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.product:hover button {
+  background: #eabf00;
+}
+
+.products hr {
+  width: 30px;
+  border: 1px solid #eabf00;
+}
+
+.price p {
+  margin: 0;
+}
+
+button.size-buttons {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: 4px;
+  border: none;
+  background-color: #ececec;
+  cursor: pointer;
+  outline: none;
+}
+
+button.size-buttons:hover {
+  border: black 1px solid;
+}
+
+button.size-buttons:focus {
+  color: white;
+  background: black;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+
