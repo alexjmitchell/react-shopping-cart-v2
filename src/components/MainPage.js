@@ -1,12 +1,20 @@
 import React from "react"
 import "../styles/MainPage.css"
-import { useProducts } from "../hooks"
+import { useProducts, useCart } from "../hooks"
 
 const MainPage = props => {
   const { display, sizes, filter } = useProducts()
+  const { open, addItem } = useCart()
+
+  const handleAdd = (event, product) => {
+    event.preventDefault()
+    addItem(product)
+    open()
+  }
   return (
     <div className="main-container">
-      <div className="buttons">
+      <h4>Sizes:</h4>
+      <div className="buttons">  
         {sizes.map((size, i) => (
           <button
             key={`size-button-${i}`}
@@ -17,6 +25,8 @@ const MainPage = props => {
           </button>
         ))}
       </div>
+      {console.log(display.length)}
+      <h5 className="products-length">{display.length} Product(s) Found</h5>
       <div className="products-container">
         {display.map((product, i) => {
           const {
@@ -53,18 +63,26 @@ const MainPage = props => {
                   {currency}
                   <span className="dollar">{dollars}</span>.{cents}
                 </p>
-                <p>
+                <div>
                   {installments ? (
                     <p className="installments">
                       {" "}
                       or {installments} x{(price / installments).toFixed(2)}
                     </p>
                   ) : (
-                    <p className="installments">&nbsp;</p>
+                    <div className="installments">
+                      <p>&nbsp;</p>
+                      <p>&nbsp;</p>
+                    </div>
                   )}
-                </p>
+                </div>
               </div>
-              <button className="add-to-cart">Add to Cart</button>
+              <button
+                className="add-to-cart"
+                onClick={event => handleAdd(event, product)}
+              >
+                Add to Cart
+              </button>
             </div>
           )
         })}
